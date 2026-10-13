@@ -44,7 +44,10 @@
     const reel = v.closest('.reel')
     const tc = reel.querySelector('.reel__tc')
     const btn = reel.querySelector('.reel__toggle')
-    let wanted = !reduce
+    // data-manual: the poster is a designed thumbnail; wait for a press.
+    let wanted = !reduce && !('manual' in v.dataset)
+    const big = reel.querySelector('.reel__big')
+    if (big) big.addEventListener('click', () => { wanted = true; big.remove(); v.play().catch(() => {}) })
     const sync = () => {
       reel.classList.toggle('is-playing', !v.paused)
       if (!btn) return

@@ -398,3 +398,9 @@ details.more>.more__body>*+*{margin-top:1em}
 .row-wrap{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center}
 .mt-s{margin-top:12px}.mt-m{margin-top:24px}.mt-l{margin-top:40px}
 .hr{border:0;border-top:1px dashed var(--edge);margin:24px 0}
+
+/* a reel that waits for a press: its poster is a designed thumbnail with its
+   own play mark, so the whole frame is the button */
+.reel__big{position:absolute;inset:0;z-index:4;background:none;border:0;cursor:pointer}
+.reel__big:focus-visible{outline:2px solid var(--accent-hi);outline-offset:-4px}
+.reel:has(.reel__big) .reel__toggle{display:none}
